@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Tempur Sealy Article Mock-ups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: a sticky review bar over a single encyclopedia-style article column, infobox floated right, stacking under 760px */
+:root{
+  --bg:#F6F6F4; --page:#FFFFFF; --ink:#202122; --muted:#54595D; --rule:#A2A9B1; --hair:#DCDFE3;
+  --link:#2F5FB3; --box:#F8F9FA; --bar:#1D2733; --bar-ink:#F1EEE6; --bar-muted:#B9C0C9; --accent:#C9A24A;
+  --new:#FFF0BF; --new-edge:#B08D3C; --pending:#8A5A00;
+  --serif:'Source Serif 4', Georgia, 'Times New Roman', serif;
+  --sans:'Public Sans', 'Helvetica Neue', Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#101418; --page:#181D23; --ink:#E6E8EA; --muted:#A3ABB4; --rule:#4A535D; --hair:#2E353D;
+  --link:#8AB4F8; --box:#1F252C; --bar:#0B0F13; --bar-ink:#F1EEE6; --bar-muted:#9AA3AD; --accent:#D8B45E;
+  --new:#3A3218; --new-edge:#D8B45E; --pending:#E3B256; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#101418; --page:#181D23; --ink:#E6E8EA; --muted:#A3ABB4; --rule:#4A535D; --hair:#2E353D;
+  --link:#8AB4F8; --box:#1F252C; --bar:#0B0F13; --bar-ink:#F1EEE6; --bar-muted:#9AA3AD; --accent:#D8B45E;
+  --new:#3A3218; --new-edge:#D8B45E; --pending:#E3B256; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bar)}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bar);color:var(--bar-ink);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:12px}
+.bar-in{max-width:1180px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.bar h1{font-family:var(--serif);font-weight:600;font-size:18px;margin:0;letter-spacing:.01em}
+.bar .tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.tabs{display:flex;gap:4px;flex-wrap:wrap}
+.tabs button{font:600 14px var(--sans);color:var(--bar-muted);background:transparent;border:1px solid transparent;border-radius:6px;padding:6px 12px;cursor:pointer}
+.tabs button[aria-selected="true"]{color:var(--bar-ink);border-color:var(--accent)}
+.tabs button:focus-visible,.toggle input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.toggle{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--bar-muted);margin-left:auto;cursor:pointer}
+.legend{max-width:1180px;margin:0 auto;padding-top:8px;font-size:12.5px;color:var(--bar-muted)}
+.legend b{color:var(--bar-ink);font-weight:600}
+.wrap{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px}
+article{max-width:1180px;margin:0 auto;background:var(--page);border:1px solid var(--hair);padding:28px clamp(18px,4vw,48px) 48px}
+article h2.title{font-family:var(--serif);font-weight:400;font-size:clamp(28px,4vw,34px);line-height:1.2;margin:0 0 4px;padding-bottom:6px;border-bottom:1px solid var(--rule);text-wrap:balance}
+.from{font-size:12.5px;color:var(--muted);margin:6px 0 18px}
+article h3{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.3;margin:28px 0 10px;padding-bottom:4px;border-bottom:1px solid var(--rule);text-wrap:balance;clear:none}
+article h4{font-family:var(--sans);font-weight:700;font-size:15.5px;margin:20px 0 6px}
+article p{margin:0 0 12px;max-width:72ch}
+article ul{margin:0 0 12px;padding-left:22px;max-width:72ch}
+article li{margin:2px 0}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+.wl{color:var(--link)}
+sup{font-size:11px;line-height:0}
+sup a{padding:0 1px}
+.pend{color:var(--pending);font-weight:700}
+.infobox{float:right;clear:right;width:300px;margin:0 0 18px 28px;background:var(--box);border:1px solid var(--rule);padding:10px;font-size:13.5px;line-height:1.45}
+.infobox caption{font-family:var(--serif);font-weight:600;font-size:17px;padding:4px 0 10px;text-align:center;caption-side:top}
+.infobox table{width:100%;border-collapse:collapse}
+.infobox th{text-align:left;vertical-align:top;padding:4px 8px 4px 0;width:38%;font-weight:700}
+.infobox td{vertical-align:top;padding:4px 0}
+.toc{display:inline-block;background:var(--box);border:1px solid var(--rule);padding:10px 18px 12px;margin:6px 0 16px;font-size:13.5px}
+.toc strong{display:block;text-align:center;margin-bottom:4px}
+.toc ol{margin:0;padding-left:20px}
+.toc ol ol{padding-left:18px}
+.refs{font-size:13px;columns:2 320px;column-gap:36px;max-width:none}
+.refs li{break-inside:avoid;margin-bottom:4px}
+.refs:target,.refs li:target{background:var(--new)}
+body.show-new .new{background:var(--new);box-shadow:-4px 0 0 var(--new-edge)}
+body.show-new li.new{box-shadow:-4px 0 0 var(--new-edge)}
+.nav-note{font-size:12.5px;color:var(--muted);border-top:1px solid var(--hair);margin-top:28px;padding-top:12px;max-width:none}
+@media (max-width:760px){
+  .infobox{float:none;width:auto;margin:0 0 18px}
+  .toggle{margin-left:0}
+  .refs{columns:1}
+}
+@media (prefers-reduced-motion:no-preference){.tabs button{transition:color .15s,border-color .15s}}
+</style>
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="bar-in">
+    <div>
+      <div class="tag">Best case · draft mock-up · not live</div>
+      <h1>Tempur Sealy brands on Wikipedia</h1>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Articles">
+      <button role="tab" id="tab-tempur-pedic" aria-controls="tempur-pedic" aria-selected="true">Tempur-Pedic</button>
+      <button role="tab" id="tab-sealy" aria-controls="sealy" aria-selected="false">Sealy</button>
+      <button role="tab" id="tab-stearns-foster" aria-controls="stearns-foster" aria-selected="false">Stearns &amp; Foster</button>
+    </div>
+    <label class="toggle" for="showNew"><input type="checkbox" id="showNew"> Highlight what’s new</label>
+  </div>
+  <p class="legend"><b>†</b> = source not yet confirmed against the live page. Every other citation is a real, located source. Section structure follows the Casper Sleep article.</p>
+</header>
+
+<main class="wrap">
+
+<!-- ===================== TEMPUR-PEDIC ===================== -->
+<article id="tempur-pedic" role="tabpanel" aria-labelledby="tab-tempur-pedic">
+<h2 class="title">Tempur-Pedic</h2>
+<p class="from">Mock-up of a proposed revision · draft wording</p>
+
+<div class="infobox"><table>
+<caption>Tempur-Pedic International Inc.</caption>
+<tr><th>Type</th><td>Subsidiary</td></tr>
+<tr><th>Industry</th><td>Bedding</td></tr>
+<tr><th>Founded</th><td>1992</td></tr>
+<tr><th>Headquarters</th><td><span class="wl">Lexington, Kentucky</span>, U.S.</td></tr>
+<tr><th>Products</th><td>Mattresses, pillows, toppers, adjustable bases</td></tr>
+<tr class="new"><th>Parent</th><td><span class="wl">Somnigroup International</span> (2013–present)</td></tr>
+<tr><th>Website</th><td>tempurpedic.com</td></tr>
+</table></div>
+
+<p><b>Tempur-Pedic International, Inc.</b> is an American manufacturer of <span class="wl">mattresses</span>, <span class="wl">pillows</span> and <span class="wl">adjustable beds</span> made with <span class="wl">viscoelastic foam</span>. A subsidiary of <span class="wl">Somnigroup International</span> (formerly Tempur Sealy International), it is headquartered on the <span class="wl">Coldstream Research Campus</span> in <span class="wl">Lexington, Kentucky</span>, and has manufacturing plants in <span class="wl">Duffield, Virginia</span>, and <span class="wl">Albuquerque, New Mexico</span>.<sup><a href="#tp-r1">[1]</a></sup></p>
+<p class="new">The company was founded in 1992 to sell mattresses made by the Swedish foam maker <span class="wl">Fagerdala World Foams</span> in the United States. It went public in 2003, acquired <span class="wl">Sealy Corporation</span> in 2013, and became part of Somnigroup in 2025 after its parent acquired the retailer <span class="wl">Mattress Firm</span>.<sup><a href="#tp-r2">[2]</a><a href="#tp-r5">[5]</a><a href="#tp-r7">[7]</a></sup></p>
+
+<nav class="toc" aria-label="Contents"><strong>Contents</strong><ol>
+<li><a href="#tp-history">History</a><ol><li><a href="#tp-h1">Founding</a></li><li><a href="#tp-h2">Acquisition of Sealy</a></li><li><a href="#tp-h3">Mattress Firm and Somnigroup</a></li></ol></li>
+<li><a href="#tp-products">Products</a></li><li><a href="#tp-tech">Technology and design</a></li><li><a href="#tp-legal">Legal issues</a></li>
+<li><a href="#tp-awards">Awards and recognition</a></li><li><a href="#tp-retail">Retail presence</a></li><li><a href="#tp-refs">References</a></li>
+</ol></nav>
+
+<h3 id="tp-history">History</h3>
+<h4 id="tp-h1">Founding</h4>
+<p>The first TEMPUR mattresses were made by Fagerdala World Foams, a Swedish technical foam company. The brand was brought to the United States in 1992, when Tempur-Pedic, Inc. was founded.<sup><a href="#tp-r2">[2]</a></sup> In 1999, nine Fagerdala distributors, including Tempur-Pedic, merged to form Tempur World Holding Company, which was reorganized in 2002 as Tempur-Pedic International Inc.<sup><a href="#tp-r3">[3]</a></sup> The company held its <span class="wl">initial public offering</span> in 2003.<sup><a href="#tp-r4">[4]</a></sup></p>
+<h4 id="tp-h2">Acquisition of Sealy</h4>
+<p class="new">In September 2012, Tempur-Pedic agreed to acquire Sealy Corporation for $2.20 per share, about $229 million, and to assume or repay Sealy’s debt, for a total transaction value of about $1.3 billion. The deal combined a fast-growing maker of memory foam mattresses with what had been, until 2011, the largest U.S. maker of innerspring mattresses.<sup><a href="#tp-r5">[5]</a></sup> The <span class="wl">Federal Trade Commission</span> cleared the acquisition in March 2013, and it closed on March 18, 2013.<sup><a href="#tp-r6">[6]</a></sup> The combined company was renamed Tempur Sealy International on May 22, 2013.<sup><a href="#tp-r3">[3]</a></sup></p>
+<h4 id="tp-h3">Mattress Firm and Somnigroup</h4>
+<p class="new">In May 2023, Tempur Sealy agreed to acquire Mattress Firm, the largest mattress specialty retailer in the United States. The Federal Trade Commission challenged the deal; after a federal court in Texas declined to block it, Tempur Sealy completed the acquisition on February 5, 2025, for about $5 billion and agreed to sell 176 retail locations to Mattress Warehouse.<sup><a href="#tp-r7">[7]</a><a href="#tp-r8">[8]</a></sup> On February 18, 2025, the parent company changed its name to Somnigroup International, with Tempur Sealy, Mattress Firm and the British retailer <span class="wl">Dreams</span> operating as separate business units.<sup><a href="#tp-r7">[7]</a></sup></p>
+
+<h3 id="tp-products" class="new">Products</h3>
+<p class="new">Tempur-Pedic sells mattresses, pillows, mattress toppers and adjustable bases. Its mattress collections include TEMPUR-Cloud, TEMPUR-Adapt, TEMPUR-ProAdapt and TEMPUR-LuxeAdapt, sold in all-foam and hybrid versions, and the cooling-focused Breeze line, which includes the TEMPUR-ProBreeze and TEMPUR-LuxeBreeze.<sup><a href="#tp-r9">[9]</a><a href="#tp-r10">[10]</a></sup> Its pillows include the contoured TEMPUR-Neck and the TEMPUR-Cloud.<sup><a href="#tp-r12">[12]</a></sup> The company also sells the Ergo line of adjustable bases.<sup><a href="#tp-r11">[11]</a></sup></p>
+
+<h3 id="tp-tech" class="new">Technology and design</h3>
+<p class="new">Tempur-Pedic products are built from TEMPUR material, a viscoelastic memory foam that softens with body heat and conforms to the sleeper’s shape. <span class="wl">Memory foam</span> was originally developed in 1966 under a <span class="wl">NASA</span> contract; Fagerdala later adapted it for mattresses and pillows.<sup><a href="#tp-r2">[2]</a></sup> The Breeze products add cooling covers and layers intended to lower the sleep surface’s temperature.<sup><a href="#tp-r10">[10]</a></sup> The TEMPUR-ActiveBreeze smart bed adds a built-in climate system, which the company says gives a temperature range of up to 30 degrees, along with Sleeptracker-AI sleep monitoring; its top model launched at $18,500.<sup><a href="#tp-r13">[13]</a><a href="#tp-r14">[14]</a></sup></p>
+
+<h3 id="tp-legal">Legal issues</h3>
+<p>In 2015, Tempur-Pedic’s German subsidiary was fined €15.5 million by Germany’s <span class="wl">Federal Cartel Office</span> for engaging in vertical <span class="wl">price fixing</span> between August 2005 and July 2011.<sup><a href="#tp-r15">[15]</a><a href="#tp-r16">[16]</a></sup></p>
+
+<h3 id="tp-awards" class="new">Awards and recognition</h3>
+<p>In 2009, mattresses made of TEMPUR material earned the <span class="wl">Good Housekeeping Seal</span>,<sup><a href="#tp-r17">[17]</a></sup> and the company’s products received an Ease-of-Use Commendation from the <span class="wl">Arthritis Foundation</span>.<sup><a href="#tp-r18">[18]</a></sup></p>
+<p class="new">In 2026, the TEMPUR-ActiveBreeze smart bed was a winner in the bed frames and bases category of the Good Housekeeping Bedding Awards,<sup><a href="#tp-r19">[19]</a></sup> and the TEMPUR-Neck pillow won in the wellness category of the HuffPost Shopping Awards.<sup><a href="#tp-r20">[20]</a></sup> <span class="wl">Wired</span> reviewed the ActiveBreeze smart bed the same year.<sup><a href="#tp-r21">[21]</a><span class="pend">†</span></sup></p>
+<p class="new">Editorial product guides have recognized Tempur-Pedic products, including:</p>
+<ul class="new">
+<li>Good Housekeeping: Best Overall luxury mattress, TEMPUR-ProAdapt (2026)<sup><a href="#tp-r22">[22]</a></sup></li>
+<li>Business Insider: Best memory foam cooling pillow, TEMPUR-Cloud Dual Cooling Pillow (2026)<sup><a href="#tp-r12">[12]</a></sup></li>
+<li>Apartment Therapy: Best foam mattress topper, TEMPUR-Adapt Topper (2026)<sup><a href="#tp-r23">[23]</a></sup></li>
+<li>Yahoo Health: Best pressure relief for side sleepers, TEMPUR-ProAdapt (2026)<sup><a href="#tp-r9">[9]</a></sup></li>
+<li>The Strategist: Best cooling foam mattress, TEMPUR-LuxeBreeze<sup><a href="#tp-r24">[24]</a><span class="pend">†</span></sup></li>
+</ul>
+
+<h3 id="tp-retail" class="new">Retail presence</h3>
+<p class="new">Tempur-Pedic products are sold through independent furniture and mattress retailers, through Mattress Firm, which its parent company has owned since 2025, and directly to consumers online and in company-operated stores.<sup><a href="#tp-r7">[7]</a><a href="#tp-r25">[25]</a></sup></p>
+
+<h3 id="tp-refs">References</h3>
+<ol class="refs">
+<li id="tp-r1">“Company Profile.” Somnigroup International. Retrieved October 20, 2026.</li>
+<li id="tp-r2">Weintraub, Arlene (August 15, 2005). “Sweet Dreams Are Made of Foam.” <i>BusinessWeek</i>.</li>
+<li id="tp-r3">“Investor FAQ.” Tempur Sealy International. Archived July 2, 2017.</li>
+<li id="tp-r4">“Tempur-Pedic is IPO of the week.” <i>MarketWatch</i>. 2003.</li>
+<li id="tp-r5">“Tempur-Pedic agrees to acquire Sealy in $1.3 billion deal.” <i>Furniture Today</i>. September 27, 2012.</li>
+<li id="tp-r6">“FTC approval clears way for Tempur-Pedic, Sealy merger.” <i>Furniture Today</i>. March 8, 2013.</li>
+<li id="tp-r7">“Tempur Sealy Completes $5 Billion Acquisition of Mattress Firm.” Tempur Sealy International, Form 8-K. February 5, 2025.</li>
+<li id="tp-r8">“Tempur Sealy Completes Mattress Firm Acquisition, Announces Name Change.” <i>Retail TouchPoints</i>. February 6, 2025.</li>
+<li id="tp-r9">“Best mattresses for side sleepers in 2026.” <i>Yahoo Health</i>. June 12, 2026.</li>
+<li id="tp-r10">McGrane, Kelli. “Tempur-Pedic ProBreeze review 2026.” <i>Yahoo Health</i>. March 19, 2026.</li>
+<li id="tp-r11">“4 Best Adjustable Beds of 2026.” <i>Good Housekeeping</i>. June 10, 2026.</li>
+<li id="tp-r12">“The best cooling pillows for hot sleepers and night sweats.” <i>Business Insider</i>. August 8, 2026.</li>
+<li id="tp-r13">“Tempur Sealy integrates AI in newest ActiveBreeze smart bed.” <i>Furniture Today</i>.</li>
+<li id="tp-r14">“Tempur-Pedic launches $18,500 smart cooling mattress with AI sleep tracking.” <i>Tom’s Guide</i>.</li>
+<li id="tp-r15">“Tempur Sealy International settles with Germany’s Federal Cartel Office.” <i>The Furnishing Report</i>. October 23, 2015.</li>
+<li id="tp-r16">Krause, Martin (October 22, 2015). “Steinhagener Matratzenhersteller Tempur muss 15,5 Millionen Euro Bußgeld zahlen.” <i>Neue Westfälische</i> (in German).</li>
+<li id="tp-r17">“Bed and Bath Products: Good Housekeeping Seal.” <i>Good Housekeeping</i>. Archived June 16, 2009.</li>
+<li id="tp-r18">“Ease of Use.” Arthritis Foundation. Retrieved July 12, 2012.</li>
+<li id="tp-r19">“2026 Bedding Awards.” <i>Good Housekeeping</i>. March 9, 2026.</li>
+<li id="tp-r20">“HuffPost Shopping Awards 2026: The Complete Winners.” <i>HuffPost</i>. April 16, 2026.</li>
+<li id="tp-r21">“Review: Tempur-ActiveBreeze Smart Bed.” <i>Wired</i>. 2026. <span class="pend">† URL, author and date to confirm</span></li>
+<li id="tp-r22">“The Best Luxury Mattresses That Are Worth the Investment.” <i>Good Housekeeping</i>. January 28, 2026.</li>
+<li id="tp-r23">“I’m a Hot Sleeper, and I Tested Mattress Toppers to Find the Best One.” <i>Apartment Therapy</i>. May 20, 2026.</li>
+<li id="tp-r24">“The Best Cooling Mattresses.” <i>The Strategist</i>. <span class="pend">† to confirm</span></li>
+<li id="tp-r25">Somnigroup International, Annual Report (Form 10-K), 2025.</li>
+</ol>
+<p class="nav-note">The 2015 price-fixing fine stays in every scenario. It is accurately sourced, and requesting its removal would undermine the other edit requests.</p>
+</article>
+
+<!-- ===================== SEALY ===================== -->
+<article id="sealy" role="tabpanel" aria-labelledby="tab-sealy" hidden>
+<h2 class="title">Sealy Corporation</h2>
+<p class="from">Mock-up of a proposed revision · draft wording</p>
+
+<div class="infobox"><table>
+<caption>Sealy Corporation</caption>
+<tr><th>Type</th><td>Subsidiary</td></tr>
+<tr class="new"><th>Traded as</th><td>NYSE: ZZ (until 2013)</td></tr>
+<tr><th>Industry</th><td>Bedding</td></tr>
+<tr><th>Founded</th><td>1881, <span class="wl">Sealy, Texas</span>, U.S.</td></tr>
+<tr><th>Founder</th><td>Daniel Haynes</td></tr>
+<tr><th>Headquarters</th><td><span class="wl">Trinity, North Carolina</span>, U.S.</td></tr>
+<tr class="new"><th>Products</th><td>Mattresses, adjustable bases</td></tr>
+<tr class="new"><th>Brands</th><td>Sealy Posturepedic, <span class="wl">Stearns &amp; Foster</span>, Cocoon by Sealy</td></tr>
+<tr class="new"><th>Parent</th><td><span class="wl">Somnigroup International</span> (2013–present)</td></tr>
+<tr><th>Website</th><td>sealy.com</td></tr>
+</table></div>
+
+<p><b>Sealy</b> (formerly the <b>Sealy Corporation</b>) is an American brand of <span class="wl">mattresses</span> marketed and sold by <span class="wl">Somnigroup International</span>. It takes its name from <span class="wl">Sealy, Texas</span>, where the company began in 1881.</p>
+<p class="new">Sealy grew through a licensing system that made it a national brand by the 1920s. Its largest licensee, the Ohio Mattress Company, acquired the company in the 1980s and took the Sealy name in 1990. Sealy was the largest U.S. maker of innerspring mattresses until 2011, and was acquired by <span class="wl">Tempur-Pedic</span> in 2013.<sup><a href="#se-r2">[2]</a><a href="#se-r9">[9]</a></sup></p>
+
+<nav class="toc" aria-label="Contents"><strong>Contents</strong><ol>
+<li><a href="#se-history">History</a><ol><li><a href="#se-h1">Origins and licensing</a></li><li><a href="#se-h2">Ohio Mattress</a></li><li><a href="#se-h3">Buyouts and public listing</a></li><li><a href="#se-h4">Tempur Sealy and Somnigroup</a></li></ol></li>
+<li><a href="#se-products">Products</a></li><li><a href="#se-tech">Technology and design</a></li><li><a href="#se-awards">Awards and recognition</a></li><li><a href="#se-intl">Retail and international markets</a></li><li><a href="#se-refs">References</a></li>
+</ol></nav>
+
+<h3 id="se-history">History</h3>
+<h4 id="se-h1">Origins and licensing</h4>
+<p>In 1881, cotton gin builder Daniel Haynes of Sealy, Texas, began making cotton-filled mattresses for friends and neighbors. In 1889 he patented a machine that compressed cotton for his mattresses, and he later sold the rights to manufacturers in other markets.<sup><a href="#se-r1">[1]</a></sup> In 1906, Earl Edwards bought the patents, took the Sealy name and built a national brand. Lacking money for factories, Sealy expanded by licensing: by 1920 it had 28 licensed plants.<sup><a href="#se-r1">[1]</a></sup></p>
+<h4 id="se-h2">Ohio Mattress</h4>
+<p>The <span class="wl">Great Depression</span> cost Sealy most of its licensees, and the company consolidated with those that survived.<sup><a href="#se-r1">[1]</a></sup> Its largest licensee, the Cleveland-based Ohio Mattress Company, run by <span class="wl">Ernest M. Wuliger</span>, sold into territories reserved for other licensees and filed an <span class="wl">antitrust</span> suit against Sealy in 1971.<sup><a href="#se-r2">[2]</a></sup></p>
+<p class="new">In 1983, Ohio Mattress bought the premium mattress brand <span class="wl">Stearns &amp; Foster</span>.<sup><a href="#se-r2">[2]</a></sup></p>
+<p>The antitrust case was decided in 1986 in Ohio Mattress’s favor, with a $77 million award. Unable to pay, Sealy and all but one of its other licensees sold to Ohio Mattress, which became the world’s largest bedding manufacturer by sales.<sup><a href="#se-r2">[2]</a></sup></p>
+<h4 id="se-h3">Buyouts and public listing</h4>
+<p>The merchant bank Gibbons, Green, van Amerongen took the company private in an April 1989 <span class="wl">leveraged buyout</span>. Its bridge lender, <span class="wl">First Boston</span>, was left holding the loan when the junk-bond market dried up, and the deal became known as “burning bed.”<sup><a href="#se-r3">[3]</a></sup> Ohio Mattress adopted the Sealy name in 1990.<sup><a href="#se-r2">[2]</a></sup> <span class="wl">Bain Capital</span> and Sealy executives acquired the company in 1997, and in 1998 Sealy moved its headquarters from Cleveland to North Carolina. <span class="wl">Kohlberg Kravis Roberts</span> acquired it in 2004 in a deal valued at $1.5 billion,<sup><a href="#se-r4">[4]</a></sup> and Sealy announced an initial public offering in 2005.<sup><a href="#se-r5">[5]</a></sup></p>
+<h4 id="se-h4">Tempur Sealy and Somnigroup</h4>
+<p class="new">In September 2012, Tempur-Pedic agreed to acquire Sealy for $2.20 per share and to assume its debt, a transaction valued at about $1.3 billion. As of 2012, Sealy operated 25 U.S. plants and held 17.8 percent of U.S. mattress sales.<sup><a href="#se-r6">[6]</a><a href="#se-r7">[7]</a></sup> The acquisition closed in March 2013, and the combined company was named Tempur Sealy International.<sup><a href="#se-r8">[8]</a></sup> In February 2025, Tempur Sealy acquired the retailer <span class="wl">Mattress Firm</span> and changed its name to Somnigroup International.<sup><a href="#se-r10">[10]</a></sup></p>
+
+<h3 id="se-products" class="new">Products</h3>
+<p class="new">Sealy makes innerspring, hybrid and foam mattresses and adjustable bases. Its main line is Sealy Posturepedic, which includes the Posturepedic Spring, the Posturepedic Hybrid and the Posturepedic Elite collection, whose models include the Brenham.<sup><a href="#se-r11">[11]</a><a href="#se-r13">[13]</a></sup> It also sells Ease adjustable power bases<sup><a href="#se-r12">[12]</a></sup> and Cocoon by Sealy, an all-foam mattress sold online and shipped compressed in a box.<sup><a href="#se-r14">[14]</a><span class="pend">†</span></sup> Stearns &amp; Foster, which Sealy has owned since 1983, is sold as a separate premium brand.<sup><a href="#se-r2">[2]</a></sup></p>
+
+<h3 id="se-tech" class="new">Technology and design</h3>
+<p class="new">Sealy introduced the Posturepedic line in 1950, developed with input from orthopedic surgeons.<sup><a href="#se-r15">[15]</a><span class="pend">†</span></sup> Posturepedic mattresses use innerspring coil units with added support under the center third of the body, where the most weight rests.<sup><a href="#se-r11">[11]</a><span class="pend">†</span></sup> Sealy’s hybrid models pair those coil units with foam comfort layers.<sup><a href="#se-r13">[13]</a></sup></p>
+
+<h3 id="se-awards" class="new">Awards and recognition</h3>
+<p class="new">In 2026, <span class="wl">Good Housekeeping</span> named the Sealy Posturepedic Spring its best mattress under $1,000<sup><a href="#se-r11">[11]</a></sup> and the Ease Power Base its best adjustable bed for seniors.<sup><a href="#se-r12">[12]</a></sup> The same year, the Posturepedic collection won a BrandSpark Best New Product Award, which is based on a consumer survey,<sup><a href="#se-r16">[16]</a></sup> and Sealy ranked second among crib mattress brands in <span class="wl">Newsweek</span>’s America’s Most Trusted Brands survey.<sup><a href="#se-r17">[17]</a></sup></p>
+<p class="new">Editorial reviews and product guides have recognized Sealy products, including:</p>
+<ul class="new">
+<li>PureWow: PureWow100 score of 95, Posturepedic Elite Brenham (2026)<sup><a href="#se-r18">[18]</a></sup></li>
+<li>Forbes Vetted: Review of the Posturepedic Elite Brenham (2026)<sup><a href="#se-r19">[19]</a><span class="pend">†</span></sup></li>
+<li>The Strategist: Best less-expensive cooling hybrid, Posturepedic Elite Hybrid<sup><a href="#se-r20">[20]</a><span class="pend">†</span></sup></li>
+<li>Yahoo Health: Best affordable mattress for side sleepers, Posturepedic Hybrid (2026)<sup><a href="#se-r13">[13]</a><span class="pend">†</span></sup></li>
+</ul>
+
+<h3 id="se-intl">Retail and international markets</h3>
+<p class="new">Sealy mattresses are sold through independent furniture and mattress retailers, through Mattress Firm, which its parent company has owned since 2025, and online.<sup><a href="#se-r10">[10]</a></sup></p>
+<p>Licensees operate in Australia, Argentina, the Bahamas, Colombia, Israel, Jamaica, Japan, New Zealand, South Africa, Thailand and the United Kingdom. Sealy began exporting to South Korea in 1995 and manufacturing in Mexico in 1996 and South Africa in 2001. In 2011 it opened its first plant in China, a 100,000-square-foot factory outside <span class="wl">Shanghai</span> run as a joint venture with licensee Sealy Australia.<sup><a href="#se-r21">[21]</a></sup></p>
+
+<h3 id="se-refs">References</h3>
+<ol class="refs">
+<li id="se-r1">“History of Sealy Inc.” <i>International Directory of Company Histories</i>.</li>
+<li id="se-r2">“Ohio Mattress Co.” <i>Encyclopedia of Cleveland History</i>. Case Western Reserve University.</li>
+<li id="se-r3">“Private Money.” <i>Fortune</i>. March 5, 2007.</li>
+<li id="se-r4">“Sealy signs merger agreement with KKR; deal valued $1.5 billion.” <i>BedTimes</i>. March 4, 2004.</li>
+<li id="se-r5">“Sealy to go public.” <i>BedTimes</i>. August 2005.</li>
+<li id="se-r6">“Tempur-Pedic agrees to acquire Sealy in $1.3 billion deal.” <i>Furniture Today</i>. September 27, 2012.</li>
+<li id="se-r7">Barron, Richard M. (September 28, 2012). “Tempur-Pedic buys Trinity-based Sealy for $228.6 million in cash.” <i>News &amp; Record</i>.</li>
+<li id="se-r8">“FTC approval clears way for Tempur-Pedic, Sealy merger.” <i>Furniture Today</i>. March 8, 2013.</li>
+<li id="se-r9">“Tempur-Pedic to buy Sealy.” <i>Furniture Today</i>. October 2, 2012.</li>
+<li id="se-r10">“Tempur Sealy Completes Mattress Firm Acquisition, Announces Name Change.” <i>Retail TouchPoints</i>. February 6, 2025.</li>
+<li id="se-r11">“The Best Mattresses of 2026.” <i>Good Housekeeping</i>. June 10, 2026.</li>
+<li id="se-r12">“4 Best Adjustable Beds of 2026.” <i>Good Housekeeping</i>. June 10, 2026.</li>
+<li id="se-r13">“Best mattresses for side sleepers in 2026.” <i>Yahoo Health</i>. June 12, 2026. <span class="pend">† Sealy pick label to confirm</span></li>
+<li id="se-r14">Source for Cocoon by Sealy. <span class="pend">† to locate</span></li>
+<li id="se-r15">Source for the 1950 Posturepedic launch. <span class="pend">† independent source to locate</span></li>
+<li id="se-r16">“BrandSpark Best New Product Awards 2026.” BrandSpark International. 2026.</li>
+<li id="se-r17">“America’s Most Trusted Brands 2026: Baby and Kids.” <i>Newsweek</i>. March 17, 2026.</li>
+<li id="se-r18">“Sealy Posturepedic Elite Brenham Mattress Review.” <i>PureWow</i>. September 8, 2026.</li>
+<li id="se-r19">“Sealy Posturepedic Elite Brenham: A Premier Design Testers Love.” <i>Forbes Vetted</i>. <span class="pend">† score and date to confirm</span></li>
+<li id="se-r20">“16 Best Hybrid Mattresses.” <i>The Strategist</i>. <span class="pend">† to confirm</span></li>
+<li id="se-r21">“Sealy opens first factory in China.” <i>BedTimes</i>. February 2011.</li>
+</ol>
+<p class="nav-note">Best case assumes the weak references on the current page are replaced, which is what removes the “additional citations needed” banner.</p>
+</article>
+
+<!-- ===================== STEARNS & FOSTER ===================== -->
+<article id="stearns-foster" role="tabpanel" aria-labelledby="tab-stearns-foster" hidden>
+<h2 class="title">Stearns &amp; Foster</h2>
+<p class="from">Mock-up of a proposed new article · draft wording</p>
+
+<div class="infobox"><table>
+<caption>Stearns &amp; Foster</caption>
+<tr><th>Type</th><td>Brand</td></tr>
+<tr><th>Industry</th><td>Bedding</td></tr>
+<tr><th>Founded</th><td>1846, <span class="wl">Cincinnati</span>, Ohio, U.S.</td></tr>
+<tr><th>Founders</th><td>George S. Stearns, Seth C. Foster</td></tr>
+<tr><th>Products</th><td>Mattresses</td></tr>
+<tr><th>Parent</th><td><span class="wl">Sealy</span> (1983–present), part of <span class="wl">Somnigroup International</span></td></tr>
+<tr><th>Website</th><td>stearnsandfoster.com</td></tr>
+</table></div>
+
+<p class="new"><b>Stearns &amp; Foster</b> is an American mattress brand founded in 1846 in <span class="wl">Cincinnati</span>, Ohio, by George S. Stearns and Seth C. Foster.<sup><a href="#sf-r1">[1]</a></sup> The company began as a maker of cotton wadding and later operated a large factory in <span class="wl">Lockland, Ohio</span>, for about a century.<sup><a href="#sf-r2">[2]</a></sup> It has been owned by <span class="wl">Sealy</span> since 1983, and is part of <span class="wl">Somnigroup International</span>.<sup><a href="#sf-r3">[3]</a></sup></p>
+
+<nav class="toc" aria-label="Contents"><strong>Contents</strong><ol>
+<li><a href="#sf-history">History</a><ol><li><a href="#sf-h1">Cincinnati and Lockland</a></li><li><a href="#sf-h2">Ohio Mattress and Sealy</a></li><li><a href="#sf-h3">Tempur Sealy and Somnigroup</a></li></ol></li>
+<li><a href="#sf-products">Products</a></li><li><a href="#sf-tech">Technology and design</a></li><li><a href="#sf-awards">Awards and recognition</a></li><li><a href="#sf-retail">Retail presence</a></li><li><a href="#sf-refs">References</a></li>
+</ol></nav>
+
+<h3 id="sf-history" class="new">History</h3>
+<h4 id="sf-h1">Cincinnati and Lockland</h4>
+<p class="new">George Sullivan Stearns, a Massachusetts businessman, and Seth Cutter Foster, a Kentucky cotton-goods merchant, founded the company in Cincinnati in 1846 to make cotton wadding and other cotton goods, including upholstery for carriages. It later began making mattresses, which it sold to hotels.<sup><a href="#sf-r1">[1]</a></sup> In the late 19th century the company moved to Lockland, along the <span class="wl">Miami and Erie Canal</span>, where its plant grew to more than a million square feet.<sup><a href="#sf-r5">[5]</a><span class="pend">†</span></sup> At its peak in the 1970s, the Lockland plant employed more than 1,200 people.<sup><a href="#sf-r4">[4]</a></sup></p>
+<h4 id="sf-h2">Ohio Mattress and Sealy</h4>
+<p class="new">In 1983, the Ohio Mattress Company, then the largest Sealy licensee, purchased Stearns &amp; Foster as a premium brand.<sup><a href="#sf-r3">[3]</a></sup> In 1989, after Ohio Mattress was sold in a leveraged buyout, its former chief executive <span class="wl">Ernest M. Wuliger</span> tried to buy Stearns &amp; Foster for $87 million.<sup><a href="#sf-r3">[3]</a></sup> Ohio Mattress took the Sealy name in 1990. Sealy closed the Lockland mattress operations in 1993, citing the plant’s limited capacity and age; the textile business at the site continued separately.<sup><a href="#sf-r2">[2]</a></sup> A 2004 fire damaged the vacant plant,<sup><a href="#sf-r4">[4]</a></sup> which was later demolished.<sup><a href="#sf-r5">[5]</a><span class="pend">†</span></sup></p>
+<h4 id="sf-h3">Tempur Sealy and Somnigroup</h4>
+<p class="new">The brand introduced its current hand-tufted design in 2009.<sup><a href="#sf-r1">[1]</a></sup> <span class="wl">Tempur-Pedic</span> acquired Sealy, including Stearns &amp; Foster, in March 2013,<sup><a href="#sf-r6">[6]</a></sup> and the parent company was renamed Somnigroup International in 2025.<sup><a href="#sf-r7">[7]</a></sup> Stearns &amp; Foster was named among the brands at issue when the <span class="wl">Federal Trade Commission</span> challenged Tempur Sealy’s acquisition of Mattress Firm.<sup><a href="#sf-r7">[7]</a></sup></p>
+
+<h3 id="sf-products" class="new">Products</h3>
+<p class="new">Stearns &amp; Foster sells innerspring and hybrid mattresses in the Estate, Lux Estate and Reserve collections, in firmness options from soft to firm and in pillow-top versions.<sup><a href="#sf-r8">[8]</a><a href="#sf-r9">[9]</a></sup> The brand is positioned above Sealy in price.<sup><a href="#sf-r10">[10]</a><span class="pend">†</span></sup></p>
+
+<h3 id="sf-tech" class="new">Technology and design</h3>
+<p class="new">Stearns &amp; Foster mattresses are built on an innerspring coil unit with foam comfort layers above it. The company describes its IntelliCoil system as a coil within a coil that firms as weight increases, and says its mattresses are hand-tufted and signed by the craftsman who assembled them.<sup><a href="#sf-r1">[1]</a></sup></p>
+
+<h3 id="sf-awards" class="new">Awards and recognition</h3>
+<p class="new">In 2026, <span class="wl">Forbes</span> Vetted named the Stearns &amp; Foster Reserve its best luxury mattress in its Best Product Awards,<sup><a href="#sf-r11">[11]</a></sup> and Apartment Therapy named the Estate Firm the best firm mattress in its annual Best List.<sup><a href="#sf-r12">[12]</a></sup> <span class="wl">Wirecutter</span>, the product review site of <span class="wl">The New York Times</span>, has recommended the Estate in its guide to innerspring mattresses.<sup><a href="#sf-r8">[8]</a></sup></p>
+<p class="new">Other product guides that have recognized Stearns &amp; Foster include:</p>
+<ul class="new">
+<li>Forbes Vetted: Best luxury mattress for seniors, Lux Estate (2026)<sup><a href="#sf-r13">[13]</a></sup></li>
+<li>Wirecutter: Recommended for back and side sleepers, Estate Pillow Top<sup><a href="#sf-r14">[14]</a><span class="pend">†</span></sup></li>
+<li>The Strategist: Best luxury hybrid with multiple firmness options, Lux Estate<sup><a href="#sf-r9">[9]</a><span class="pend">†</span></sup></li>
+</ul>
+
+<h3 id="sf-retail" class="new">Retail presence</h3>
+<p class="new">Stearns &amp; Foster mattresses are sold through furniture and mattress retailers, including Mattress Firm, which the parent company has owned since 2025.<sup><a href="#sf-r7">[7]</a></sup></p>
+
+<h3 id="sf-refs">References</h3>
+<ol class="refs">
+<li id="sf-r1">“Our History: The Stearns &amp; Foster Story.” Stearns &amp; Foster. July 15, 2021.</li>
+<li id="sf-r2">“Stearns to close in Lockland.” <i>The Cincinnati Post</i>. July 1, 1993.</li>
+<li id="sf-r3">“Ohio Mattress Co.” <i>Encyclopedia of Cleveland History</i>. Case Western Reserve University.</li>
+<li id="sf-r4">“Stearns &amp; Foster employed many in Lockland.” <i>The Cincinnati Enquirer</i>. May 2, 2004.</li>
+<li id="sf-r5">Sources for the plant’s size and later demolition, from Cincinnati Enquirer coverage. <span class="pend">† to locate</span></li>
+<li id="sf-r6">“FTC approval clears way for Tempur-Pedic, Sealy merger.” <i>Furniture Today</i>. March 8, 2013.</li>
+<li id="sf-r7">“FTC Blocks Tempur Sealy’s $4 Billion Mattress Firm Acquisition” (updated). <i>Retail TouchPoints</i>. February 6, 2025.</li>
+<li id="sf-r8">“The Best Innerspring Mattress.” <i>Wirecutter</i>, <i>The New York Times</i>. July 22, 2026.</li>
+<li id="sf-r9">“16 Best Hybrid Mattresses.” <i>The Strategist</i>. <span class="pend">† to confirm</span></li>
+<li id="sf-r10">Independent source for price positioning. <span class="pend">† to locate</span></li>
+<li id="sf-r11">“Forbes Vetted Best Product Awards 2026: Sleep.” <i>Forbes</i>. 2026.</li>
+<li id="sf-r12">“The 2026 Best List: Best Mattresses.” <i>Apartment Therapy</i>. June 24, 2026.</li>
+<li id="sf-r13">“The Best Mattresses for Seniors.” <i>Forbes Vetted</i>. October 1, 2026.</li>
+<li id="sf-r14">“The Best Mattress for Back Sleepers” and “The Best Mattresses for Side Sleepers.” <i>Wirecutter</i>. <span class="pend">† pick labels to confirm</span></li>
+</ol>
+<p class="nav-note">This new article draws its history from the Encyclopedia of Cleveland History, which dates the Ohio Mattress purchase to 1983. The brand’s own history page says 1993; the Cincinnati and Cleveland sources show 1993 is when the Lockland plant closed.</p>
+</article>
+</main>
+
+<script>
+(function(){
+  var ids=['tempur-pedic','sealy','stearns-foster'];
+  var tabs=ids.map(function(id){return document.getElementById('tab-'+id)});
+  function show(id){
+    if(ids.indexOf(id)<0) id=ids[0];
+    ids.forEach(function(x,i){
+      var on=x===id;
+      document.getElementById(x).hidden=!on;
+      tabs[i].setAttribute('aria-selected',on?'true':'false');
+      tabs[i].tabIndex=on?0:-1;
+    });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(ids[i]);window.scrollTo(0,0)});
+    t.addEventListener('keydown',function(e){
+      var d=e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0;
+      if(!d) return; var n=(i+d+ids.length)%ids.length; show(ids[n]); tabs[n].focus();
+    });
+  });
+  var h=(location.hash||'').slice(1);
+  show(ids.indexOf(h)>=0?h:ids[0]);
+  var box=document.getElementById('showNew');
+  box.addEventListener('change',function(){document.body.classList.toggle('show-new',box.checked)});
+})();
+</script>
+
+</body>
+</html>
